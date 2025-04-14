@@ -87,7 +87,7 @@ const Page = () => {
                         <h3>-Adriano Reis,<em>&nbsp;ENG-SOFT-&nbsp;</em></h3>
                     </div>
                     <div className='image-sobre'>
-                        <img src='/public/logoengsoft.png' alt="usando um computador"></img>
+                        <img src='logoengsoft.png' alt="usando um computador"></img>
                     </div>
                     <div className='competencia-sobre'>
                         <h2>Atribuições de um Engenherio de Software</h2>

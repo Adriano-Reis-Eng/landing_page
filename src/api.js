@@ -1,11 +1,12 @@
-const API_URL = 'https://script.google.com/macros/s/AKfycbyow6fpVx6PScXzLZVJPJjfnLNJ24UmNVfwlWvh_Mqv7gOLz_jxRW4kA-7hbMt9tNxZ/exec'; 
+const API_URL = 'https://script.google.com/macros/s/AKfycbxOPQwlJ6J7nY-eevM9qe1dz27k9FfLknNzgISe3dafaa_mef9-uSKRzT2QMiq3u3Nj/exec'; 
 
 export const saveContact = async (contactData) => {
     try {        
         const params = new URLSearchParams({
             nome: contactData.name,
             email: contactData.email,
-            menssagem: contactData.message
+            telefone: contactData.phone,
+            mensagem: contactData.message
         });
 
         const url = `${API_URL}?${params.toString()}`;

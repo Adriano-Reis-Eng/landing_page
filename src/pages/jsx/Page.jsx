@@ -123,13 +123,7 @@ const Page = () => {
                         <div className='tooltip'>
                             <h3>Desenvolvimento de aplicativos</h3>
                             <span className="tooltiptext">Udemy - 2023</span>
-                        </div>
-                        {/* <div className='cursos-sobre'>
-                            <h3>Engenharia de Software - Faculdade IESB</h3>
-                            <h3>Desenvolvedor Back-End - Senai</h3>
-                            <h3>Desenvolvedor Full-Stack - Senai</h3>
-                            <h3>Desenvolvimento de aplicativos .Net Maui - Udemy</h3>
-                        </div> */}
+                        </div>                        
                     </div>
                 </div>
                 <div className="roll-button">

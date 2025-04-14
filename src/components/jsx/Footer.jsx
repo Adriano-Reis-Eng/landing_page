@@ -4,8 +4,9 @@ import { saveContact } from '../../api';
 
 const Footer = () => {
   const [formData, setFormData] = useState({
-    email: '',
     name: '',
+    email: '',       
+    phone: '',
     message: ''
   });
   const [status, setStatus] = useState({
@@ -14,6 +15,20 @@ const Footer = () => {
     error: false,
     message: ''
   });
+  const [errors, setErrors] = useState({
+    email: '',
+    phone: ''
+  });
+
+  const validateEmail = (email) => {
+    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return re.test(email);
+  };
+
+  const validatePhone = (phone) => {
+    const re = /^(\d{2})?[\s-]?(\d{5}|\d{4})[\s-]?(\d{4})$/;
+    return re.test(phone);
+  };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -21,21 +36,74 @@ const Footer = () => {
       ...prev,
       [name]: value
     }));
+
+    // Validação em tempo real
+    if (name === 'email') {
+      setErrors(prev => ({
+        ...prev,
+        email: value && !validateEmail(value) ? 'Email inválido' : ''
+      }));
+    }
+    if (name === 'phone') {
+      setErrors(prev => ({
+        ...prev,
+        phone: value && !validatePhone(value) ? 'Telefone inválido' : ''
+      }));
+    }
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    
+    // Validação final antes de enviar
+    const emailError = !validateEmail(formData.email) ? 'Email inválido' : '';
+    const phoneError = !validatePhone(formData.phone) ? 'Telefone inválido' : '';
+    
+    if (emailError || phoneError) {
+      setErrors({
+        email: emailError,
+        phone: phoneError
+      });
+      return;
+    }
+
     setStatus({ loading: true, success: false, error: false, message: '' });
 
     try {
-      const response = await saveContact(formData);
+      const params = new URLSearchParams();
+      params.append('nome', formData.name);
+      params.append('email', formData.email);
+      params.append('telefone', String(formData.phone).replace(/\D/g, ''));
+      params.append('mensagem', formData.message);
+
+      const apiUrl = `https://script.google.com/macros/s/AKfycbxOPQwlJ6J7nY-eevM9qe1dz27k9FfLknNzgISe3dafaa_mef9-uSKRzT2QMiq3u3Nj/exec?${params.toString()}`;
+      
+      console.log('URL da API:', apiUrl);
+      
+      const response = await fetch(apiUrl, {
+        method: 'GET',
+        mode: 'no-cors',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+        },
+      });
+
       setStatus({
         loading: false,
         success: true,
         error: false,
         message: 'Mensagem enviada com sucesso! Entraremos em contato em breve.'
       });
-      setFormData({ email: '', name: '', message: '' });
+      
+      // Limpar o formulário após o envio bem-sucedido
+      setFormData({
+        name: '',
+        email: '',
+        phone: '',
+        message: ''
+      });
+      setErrors({ email: '', phone: '' });
     } catch (error) {
       console.error('Erro ao enviar mensagem:', error);
       setStatus({
@@ -99,40 +167,60 @@ const Footer = () => {
 
         {/* Coluna de mensagem (alinhada à direita) */}
         <div className="footer-column message">
-          <h3>Envie uma mensagem</h3>
+          <h3>Entre em Contato</h3>
           <form onSubmit={handleSubmit}>
-            <input
-              type="text"
-              name="name"
-              placeholder="Seu nome"
-              value={formData.name}
-              onChange={handleChange}
-              required
-            />
-            <input
-              type="email"
-              name="email"
-              placeholder="Seu email"
-              value={formData.email}
-              onChange={handleChange}
-              required
-            />
-            <textarea
-              name="message"
-              placeholder="Sua mensagem"
-              value={formData.message}
-              onChange={handleChange}
-              required
-            />
-            <button type="submit" disabled={status.loading}>
-              {status.loading ? 'Enviando...' : 'Enviar'}
-            </button>
-          </form>
-          {status.message && (
-            <div className={`status-message ${status.success ? 'success' : 'error'}`}>
-              {status.message}
+            <div className="form-group">
+              <input
+                type="text"
+                name="name"
+                value={formData.name}
+                onChange={handleChange}
+                placeholder="Seu Nome"
+                required
+              />
             </div>
-          )}
+            <div className="form-group">
+              <input
+                type="email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+                placeholder="Seu Email"
+                required
+                className={errors.email ? 'error' : ''}
+              />
+              {errors.email && <span className="error-message">{errors.email}</span>}
+            </div>
+            <div className="form-group">
+              <input
+                type="text"
+                name="phone"
+                value={formData.phone}
+                onChange={handleChange}
+                placeholder="Seu Telefone (ex: 11 99999-9999)"
+                required
+                className={errors.phone ? 'error' : ''}
+              />
+              {errors.phone && <span className="error-message">{errors.phone}</span>}
+            </div>
+            <div className="form-group">
+              <textarea
+                name="message"
+                value={formData.message}
+                onChange={handleChange}
+                placeholder="Sua Mensagem"
+                required
+              ></textarea>
+            </div>
+            <button type="submit" disabled={status.loading}>
+              {status.loading ? 'Enviando...' : 'Enviar Mensagem'}
+            </button>
+            {status.message && (
+              <div className={`status-message ${status.success ? 'success' : 'error'}`}>
+                {status.message}
+              </div>
+            )}
+          </form>
         </div>
       </div>
       <div className="footer-bottom">

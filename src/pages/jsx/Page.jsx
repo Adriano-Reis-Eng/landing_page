@@ -13,11 +13,8 @@ const Page = () => {
     return (
         <div className="landing-page">
             <Navbar />
-            
+
             <section id="banner" className="conteiner-banner">
-                <div className="imagem-banner">
-                    <img src="tecnologia.jpg" alt="Escaneamento de retina"></img>
-                </div>
                 <div className="texto-banner">
                     <h1>Eu sou, Adriano Reis!</h1>
                     <h3>Engenheiro de Software</h3>
@@ -86,9 +83,7 @@ const Page = () => {
                         <h1>"Desenvolver um Software é transformar desafios em soluções digitais inteligentes"</h1>
                         <h3>-Adriano Reis,<em>&nbsp;ENG-SOFT-&nbsp;</em></h3>
                     </div>
-                    <div className='image-sobre'>
-                        <img src="logoengsoft.png" alt="Pessoa usando um computador"></img>                        
-                    </div>
+                    <div className='imagem-sobre'></div>
                     <div className='competencia-sobre'>
                         <h2>Atribuições de um Engenherio de Software</h2>
                         <div className="tooltip">
@@ -113,12 +108,28 @@ const Page = () => {
                     </div>
                     <div className='texto-sobre'>
                         <h1>Cursos:</h1>
-                        <div className='cursos-sobre'>
+                        <div className='tooltip'>
+                            <h3>Engenharia de Software</h3>
+                            <span className="tooltiptext">IESB - Instituto de ensino superior de Brasilia - 2024</span>
+                        </div>
+                        <div className='tooltip'>
+                            <h3>Desenvolvedor Back-End</h3>
+                            <span className="tooltiptext">Senai - 2023</span>
+                        </div>
+                        <div className='tooltip'>
+                            <h3>Desenvolvedor Full-Stack</h3>
+                            <span className="tooltiptext">Senai/ 2025</span>
+                        </div>
+                        <div className='tooltip'>
+                            <h3>Desenvolvimento de aplicativos</h3>
+                            <span className="tooltiptext">Udemy - 2023</span>
+                        </div>
+                        {/* <div className='cursos-sobre'>
                             <h3>Engenharia de Software - Faculdade IESB</h3>
                             <h3>Desenvolvedor Back-End - Senai</h3>
                             <h3>Desenvolvedor Full-Stack - Senai</h3>
                             <h3>Desenvolvimento de aplicativos .Net Maui - Udemy</h3>
-                        </div>
+                        </div> */}
                     </div>
                 </div>
                 <div className="roll-button">

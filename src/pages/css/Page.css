@@ -1,0 +1,422 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Orbitron', sans-serif;
+    scroll-behavior: smooth;
+}
+
+:root {
+    --colorRed: #FF0000;
+    --colorWithe: #FFFFFF;
+    --colorBlack: #292929;
+    --colorGreen: #00FF00;
+    --colorCyan: #00FFFF;
+    --colorMusgo: #7D8C89;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+/* Items */
+.button {
+    background-color: transparent;
+    outline: 3px solid var(--colorWithe);
+    outline-offset: 1px;
+    color: var(--colorWithe);
+    margin-left: 20px;
+    height: 2rem;    
+    font-size: 1.2rem;
+    border-radius: 10px;
+    line-height: 2rem;   
+    text-decoration: none;
+    text-shadow: 2px 4px 2px rgba(0, 0, 0, 0.582);
+    font-weight: 500;
+    transition: all 0.8s ease;
+}
+
+.button:hover {
+    color: var(--colorCyan);
+    transform: translate(5px, -5px);
+}
+
+.roll-button {
+    grid-row: -2 / -1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto auto auto auto;
+    width: 30px;    
+    height: 30px;
+    background-image: url('seta-para-baixo.png');    
+    background-size: contain;    
+    background-repeat: no-repeat;    
+    background-position: center;    
+    transition: transform 0.5s ease-out;
+}
+
+.roll-button:hover {
+    transform: translateY(5px);
+}
+
+.landing-page {
+    display: grid;
+    grid-template-rows: 100vh 100vh 100vh auto 100vh;
+}
+/* Seção banner */
+.conteiner-banner {
+    display: grid;
+    grid-template-rows: 92vh 8vh;
+    grid-template-columns: 1fr;
+    grid-row: 1/2;
+    position: relative;
+    align-items: center;
+    box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.5);
+}
+
+.imagem-banner {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.imagem-banner img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.texto-banner {
+    display: grid;
+    grid-template-rows: 70px 70px auto;
+    width: 60%;
+    gap: 5px;
+    padding-left: 10%;
+    color: var(--colorBlack);
+    z-index: 2;
+    text-align: left;
+}
+
+.texto-banner h1 {
+    font-size: 2.5em;
+    margin: 0;
+}
+
+.texto-banner h3 {
+    font-size: 1.5em;
+}
+
+.texto-banner .button {
+    margin: auto auto auto 0;
+    width: 100px;
+    text-align: center;
+}
+
+
+/* Seção cards */
+
+.conteiner-cards {
+    grid-row: 2/3;
+    display: grid;
+    grid-template-rows: 92vh 8vh;
+    position: relative;
+    align-items: center;
+}
+
+.grid-cards {
+    grid-row: 1/2;
+    display: grid;
+    align-items: center;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px;
+    margin: auto 30px;   
+    height: 100%;
+    width: 100%;
+}
+
+.card {
+    display: grid;
+    grid-template-rows: 160px auto;
+    justify-items: center;
+    background-color: var(--colorMusgo);
+    color: var(--colorWithe);
+    height: 380px;
+    width: 250px;
+    border-radius: 20px 20px;
+    box-shadow: 10px 10px 15px 2px rgba(0, 0, 0, 0.8);
+    transition: transform 1s ease-in-out;
+}
+
+.card:hover {
+    transform: translateY(-20px);
+}
+
+.card-header {
+    grid-row: 1/2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    height: 150px;
+    margin-top: -20px;
+    background-color: #fff;
+    border-radius: 20px 20px 50% 50%;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.8);
+    transition: all 0.5s ease-in;
+}
+
+.card:hover .card-header {
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.8);
+    transform: translateY(30px);
+}
+
+.img-card1 {
+    width: 100px;
+    
+    height: 100px;
+    background-image: url('/public/desenvolvedor-de-software.png');
+    
+    background-size: contain;
+    
+    background-repeat: no-repeat;
+    
+    background-position: center;
+    
+}
+
+.img-card2 {
+    width: 100px;    
+    height: 100px;
+    background-image: url('/public/construtor-de-sites.png');    
+    background-size: contain;    
+    background-repeat: no-repeat;    
+    background-position: center;    
+}
+.img-card3 {
+    width: 100px;    
+    height: 100px;
+    background-image: url('/public/desenvolvimento-de-aplicativos.png');    
+    background-size: contain;    
+    background-repeat: no-repeat;    
+    background-position: center;    
+}
+
+.img-card4 {
+    width: 100px;    
+    height: 100px;
+    background-image: url('/public/api.png');
+    background-size: contain;   
+    background-repeat: no-repeat;    
+    background-position: center;    
+}
+
+.card-content {
+    margin-left: 10px;
+    grid-row: 2/3;
+}
+
+.card-content h1,
+.card-content h2 {
+    color: var(--colorBlack);
+}
+
+/* Seção Sobre */
+.conteiner-sobre {
+    background-color: var(--colorMusgo);
+    grid-row: 3/4;
+    display: grid;
+    grid-template-rows: 92vh 8vh;
+    position: relative;
+    align-items: center;
+}
+
+.grid-sobre {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    color: var(--colorBlack);
+    width: 100%;
+    height: 100%;
+}
+
+.banner-sobre {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    justify-content: end;
+    text-align: right;
+    width: 100%;
+    margin-left: 30%;
+    margin-bottom: 25px;
+}
+
+.image-sobre {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: flex-end;
+    margin-left: 25%;
+    margin-bottom: -40px;
+}
+
+.image-sobre img {
+    height: 200px;
+}
+
+.competencia-sobre h3 {
+    position: relative;
+    color: var(--colorBlack);
+    font-size: 1.2rem;
+    transition: all 0.3s ease-in-out;
+}
+
+.competencia-sobre h3::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background-color: var(--colorCyan);
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: all 0.3s ease-in-out;
+}
+
+.competencia-sobre h3:hover {
+    color: var(--colorCyan);
+}
+
+.competencia-sobre h3:hover::after {
+    width: 100%;
+}
+
+.competencia-sobre {
+    grid-row: 2/3;
+    grid-column: 2/3;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    width: 100%;    
+    gap: 10px;
+}
+
+.texto-sobre {    
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin-top: 60px;
+    width: 200px;
+    margin-left: 10%;
+}
+
+.cursos-sobre{    
+    display: flex;
+    flex-direction: column;
+    align-items: self-start;
+    width: 600px;
+}
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 300px;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    border-radius: 8px;
+    padding: 8px;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;   
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
+
+@media screen and (max-width: 1100px) {
+    .landing-page {
+        grid-template-rows: auto auto auto auto auto;
+    }   
+    .image-sobre{
+        height: 290px;
+    }
+    .cursos-sobre{
+        width: 400px;
+    }
+    .conteiner-cards {        
+        margin-top: 50px;
+        grid-template-rows: auto 8vh;
+    }    
+    .grid-cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width: 935px) {
+    .landing-page {
+        grid-template-rows: auto auto auto auto auto;
+    }
+    .cursos-sobre{
+        width: 300px;
+    }
+    .conteiner-banner h1 {
+        font-size: 2rem;
+    }
+}
+@media screen and (max-width: 700px) {
+    .landing-page {
+        grid-template-rows: auto auto auto auto auto;
+    }   
+    .image-sobre{
+        height: 220px;
+    }
+    .texto-sobre h1{
+        margin-top: -30%;
+    }
+    .cursos-sobre{
+        
+        width: 250px;
+    }
+    .conteiner-cards {        
+        margin-top: 50px;
+        grid-template-rows: auto 8vh;
+    }    
+    .grid-cards {
+        grid-template-columns: 1fr;
+    }
+}
+.conteiner-tecnologias{
+    grid-row: 4/5;
+    display: grid;
+    grid-template-rows: auto 8vh;    
+}
+.conteiner-interacao {
+    grid-row: 5/6;
+    display: grid;
+    grid-template-rows: 92vh 8vh;   
+    align-items: center;
+    justify-content: center;
+    background-image: image-set('/public/android.png');     
+    background-size: cover;       
+    background-repeat: no-repeat;
+    background-position: center;
+}

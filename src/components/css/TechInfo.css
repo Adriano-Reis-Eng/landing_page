@@ -1,0 +1,138 @@
+.tech-info {    
+    grid-row: 1/2;    
+    padding: 40px 20px;    
+    text-align: center;   
+    height: 100%;
+}
+
+.tech-info h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    color: var(--colorBlack);
+}
+
+.tech-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;    
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.tech-card {
+    background-color: var(--colorWithe);
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tech-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.2);
+}
+
+.tech-card h3 {
+    margin-top: 0;
+    font-size: 1.5rem;
+    color: var(--colorCyan);
+}
+
+.tech-description {
+    font-size: 1rem;
+    margin: 10px 0;
+    color: var(--colorBlack);
+}
+
+.tech-projects {
+    font-size: 0.9rem;
+    color: var(--colorMusgo);
+}
+
+/* Media Queries para responsividade */
+
+/* Tablets e telas médias */
+@media (max-width: 1024px) {
+    .tech-info {
+        padding: 30px 15px;
+    }
+    
+    .tech-info h2 {
+        font-size: 1.8rem;
+    }
+    
+    .tech-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+        padding: 0 15px;
+    }
+    
+    .tech-card {
+        padding: 18px;
+    }
+}
+
+/* Tablets pequenos */
+@media (max-width: 768px) {
+    .tech-info {
+        padding: 25px 10px;
+    }
+    
+    .tech-info h2 {
+        font-size: 1.6rem;
+    }
+    
+    .tech-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+        padding: 0 10px;
+    }
+    
+    .tech-card {
+        padding: 15px;
+    }
+    
+    .tech-card h3 {
+        font-size: 1.3rem;
+    }
+    
+    .tech-description {
+        font-size: 0.95rem;
+    }
+}
+
+/* Smartphones */
+@media (max-width: 480px) {
+    .tech-info {
+        padding: 20px 5px;
+    }
+    
+    .tech-info h2 {
+        font-size: 1.4rem;
+        margin-bottom: 15px;
+    }
+    
+    .tech-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+        padding: 0 5px;
+    }
+    
+    .tech-card {
+        padding: 12px;
+    }
+    
+    .tech-card h3 {
+        font-size: 1.2rem;
+    }
+    
+    .tech-description {
+        font-size: 0.9rem;
+        margin: 8px 0;
+    }
+    
+    .tech-projects {
+        font-size: 0.8rem;
+    }
+}

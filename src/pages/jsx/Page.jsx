@@ -19,10 +19,7 @@ const Page = () => {
                     <h1>Eu sou, Adriano Reis!</h1>
                     <h3>Engenheiro de Software</h3>
                     <a href="#sobre" className="button">Sobre</a>
-                </div>
-                <div className="roll-button">
-                    <a href="#cards" className="roll-button"></a>
-                </div>
+                </div>                
             </section>
 
             <section id="cards" className="conteiner-cards">
@@ -71,10 +68,7 @@ const Page = () => {
                             <p class="card-text">Hospedagem de sites, registro de dominio, certificado SSL.</p>
                         </div>
                     </div>
-                </div>
-                <div class="roll-button">
-                    <a href="#sobre" class="roll-button"></a>
-                </div>
+                </div>                
             </section>
 
             <section id='sobre' className='conteiner-sobre'>
@@ -85,7 +79,7 @@ const Page = () => {
                     </div>
                     <div className='imagem-sobre'></div>
                     <div className='competencia-sobre'>
-                        <h2>Atribuições de um Engenherio de Software</h2>
+                        <h2>Atribuições de um Engenheiro de Software</h2>
                         <div className="tooltip">
                             <h3>Planejamento e análise</h3>
                             <span className="tooltiptext">Definição de requisitos, levantamento de necessidades e arquitetura do sistema.</span>
@@ -126,23 +120,16 @@ const Page = () => {
                         </div>                        
                     </div>
                 </div>
-                <div className="roll-button">
-                    <a href="#tecnologias" className="roll-button"></a>
-                </div>
+                
             </section>
 
             <section id="tecnologias" className='conteiner-tecnologias'>
                 <TechInfo />
-                <div className="roll-button">
-                    <a href="#interacao" className="roll-button"></a>
-                </div>
+                
             </section>
 
             <section id='interacao' className='conteiner-interacao'>
-                <FunFact />
-                <div className="roll-button">
-                    <a href="#footer" className="roll-button"></a>
-                </div>
+                <FunFact />                
             </section>
 
             <section id='footer' >

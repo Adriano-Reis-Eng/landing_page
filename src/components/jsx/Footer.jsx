@@ -181,7 +181,7 @@ const Footer = () => {
             </div>
             <div className="form-group">
               <input
-                type="email"
+                type="text"
                 name="email"
                 value={formData.email}
                 onChange={handleChange}

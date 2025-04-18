@@ -42,59 +42,29 @@
     color: var(--colorCyan);
     transform: translate(5px, -5px);
 }
-
-.roll-button {
-    grid-row: -2 / -1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: auto auto auto auto;
-    width: 30px;    
-    height: 30px;
-    background-image: url('../../../public/seta-para-baixo.png');    
-    background-size: contain;    
-    background-repeat: no-repeat;    
-    background-position: center;    
-    transition: transform 0.5s ease-out;
-}
-
-.roll-button:hover {
-    transform: translateY(5px);
-}
-
 .landing-page {
     display: grid;
-    grid-template-rows: auto auto auto auto auto;
-}
+    grid-template-rows: auto auto auto auto auto;  
+    grid-template-columns: 1fr;
+    
+}    
+
 /* Seção banner */
 .conteiner-banner {
+    grid-row: 1/2;  
+    grid-column: 1/2;
     display: grid;
-    grid-template-rows: 92vh 8vh;
+    align-items: center;
+    grid-template-rows: 100vh;        
     grid-template-columns: 1fr;
     background-image: url('../../../public/tecnologia.png');
+    height: 100vh;
+    width: 100%;
     background-size: cover;    
     background-repeat: no-repeat;    
-    background-position: center;   
-    grid-row: 1/2;
-    position: relative;
-    align-items: center;
-    width: 100%;
-    box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.5);
+    background-position: center;      
+    box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.5);    
 }
-
-.imagem-banner {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-}
-
-.imagem-banner img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
 .texto-banner {
     display: grid;
     grid-template-rows: 70px 70px auto;
@@ -127,19 +97,19 @@
 .conteiner-cards {
     grid-row: 2/3;
     display: grid;
-    grid-template-rows: 92vh 8vh;
-    position: relative;
+    grid-template-rows: 100vh;        
     align-items: center;
-    width: 100%;
+    justify-items: center;    
+    padding: 10px;
 }
 
-.grid-cards {
-    grid-row: 1/2;
+.grid-cards {    
     display: grid;
-    align-items: center;
     grid-template-columns: repeat(4, 1fr);
-    gap: 40px;
-    margin: auto 30px;   
+    align-items: center;
+    justify-items: center;    
+    padding: 0 100px;        
+    gap: 10px;
     height: 100%;
     width: 100%;
 }
@@ -236,7 +206,7 @@
     background-color: var(--colorMusgo);
     grid-row: 3/4;
     display: grid;
-    grid-template-rows: 92vh 8vh;
+    grid-template-rows: 100vh;
     position: relative;
     align-items: center;
     width: 100%;
@@ -254,17 +224,19 @@
     align-items: center;
 }
 
-.banner-sobre {    
+.banner-sobre {                
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    justify-content: center;
-    text-align: left;
-    margin-left: 20%;    
+    justify-items: center;
+    text-align: right;       
     width: 90%;
     padding: 20px;
     grid-column: 1 / 2;
     grid-row: 1 / 2;
+}
+.banner-sobre h3{    
+    width: 90%;
 }
 
 .imagem-sobre {
@@ -286,8 +258,7 @@
 .competencia-sobre h3, .texto-sobre h3{
     position: relative;
     color: var(--colorBlack);
-    font-size: 1.2rem;
-    transition: all 0.3s ease-in-out;
+    font-size: 1.2rem;    
 }
 
 .competencia-sobre h3::after, .texto-sobre h3::after {
@@ -310,14 +281,14 @@
     width: 100%;
 }
 
-.competencia-sobre {
+.competencia-sobre {    
     grid-row: 2/3;
     grid-column: 2/3;
     display: flex;
     flex-direction: column;
     align-items: start;
     justify-content: center;
-    width: 100%;    
+    width: 110%;    
     gap: 10px;
 }
 
@@ -363,9 +334,26 @@
 .tooltip:hover .tooltiptext {
     visibility: visible;
     opacity: 1;
-}
+}   
 
-@media screen and (max-width: 1100px) {    
+.conteiner-tecnologias{
+    grid-row: 4/5;
+    display: grid;
+    grid-template-rows: auto 8vh;   
+    width: 100%; 
+}
+.conteiner-interacao {
+    grid-row: 5/6;
+    display: grid;
+    grid-template-rows: 100vh;   
+    align-items: center;
+    justify-content: center;
+    background-image: image-set('/public/android.png');     
+    background-size: cover;       
+    background-repeat: no-repeat;
+    background-position: center;
+}
+@media screen and (max-width: 1024px) {    
     .image-sobre{
         height: 290px;
     }
@@ -380,94 +368,102 @@
     }
     .conteiner-cards {        
         margin-top: 50px;
-        grid-template-rows: auto 8vh;
+        margin-bottom: 50px;
+        grid-template-rows: auto;
+        max-width: 1024px;      
     }    
-    .grid-cards {
-        display: grid;
+    .grid-cards {        
         grid-template-columns: repeat(2, 1fr);    
-        justify-items: center;
+        gap: 50px;               
+    }   
+    .conteiner-sobre{
+        max-width: 1024px;
     }
 }
 
-@media screen and (max-width: 935px) {    
-    .cursos-sobre{
-        width: 300px;
+
+@media screen and (max-width: 768px) {    
+    .conteiner-sobre{        
+        max-width: 768px;  
+        grid-template-rows: 80% 20%;      
     }
-    .texto-banner h1{
-        font-size: 2rem;
-    }
-    .banner-sobre h1{
-        background-color: #00FF00;
-        margin-left: 0;
-    }
-    .grid-sobre {
-        grid-template-rows: auto auto auto;   
-        justify-items: center; 
-    }
-    .banner-sobre {
-        grid-row: 1/2;
-        grid-column: 1/3;        
-        width: 60%;         
-        margin-left: 10%; 
-    }
-    .imagem-sobre {        
+    .grid-sobre{        
+        width: 100%;      
+        grid-template-rows: 40% 30% 30%;       
+        grid-template-columns: 60% 40%;   
+    }    
+    .imagem-sobre{
         grid-column: 2/3;
-        width: 150px; 
-        
-    }
-    .texto-sobre{         
+        height: 200px;
+        width: 100%;
+        margin-left: -15%;
+    }    
+    .texto-sobre{           
         grid-row: 2/3;
-        grid-column: 1/3;
-        justify-items: center;
-        margin: 0 auto;        
-    }
-    .competencia-sobre {       
-        grid-row: 3/4;
-        grid-column: 1/3;        
-        width: 70%;
-        margin: 0 auto;
-    }
-}
-@media screen and (max-width: 700px) {
-    
-    .image-sobre{
-        height: 220px;
-    }
-    .texto-sobre h1{
-        margin-top: -30%;
-    }
-    .cursos-sobre{
-        
-        width: 250px;
+        grid-column: 1/3;     
+        width: 400px;
+        margin-top: -5%;
+        margin-left: 15%;
     }
     .conteiner-cards {        
         margin-top: 50px;
-        grid-template-rows: auto 8vh;
+        grid-template-rows: auto;
+        width: 100%;
+        padding: 0;
     }    
     .grid-cards {
         grid-template-columns: 1fr;
-        width: 400px;
-        justify-items: center;
+        width: 50%;
     }
     .banner-sobre{
         margin-left: -10%;
+        margin: 0 auto;
+        width: 100%;
+    }
+    
+    .competencia-sobre {
+        grid-row: 3/4;
+        grid-column: 1/3;
+        width: 500px;
+        margin-top: 10%;
+        margin-left: 25%;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .conteiner-cards{
+        max-width: 480px;
+        padding: 20px;    
+        align-items: center;
+        justify-items: self-start;
+    }
+    .grid-sobre{          
+        align-items: center;
+        justify-items: start;
+        grid-template-rows: 30% 30% 30% ;
+    }
+    .banner-sobre{
+        font-size: 0.7rem;
+       width: 90%;
+       margin-left: 5%;
+    }
+    .imagem-sobre{        
+        height: 100px;
+        margin-left: -30%;
     }
 
-}
-.conteiner-tecnologias{
-    grid-row: 4/5;
-    display: grid;
-    grid-template-rows: auto 8vh;   
-    width: 100%; 
-}
-.conteiner-interacao {
-    grid-row: 5/6;
-    display: grid;
-    grid-template-rows: 92vh 8vh;   
-    align-items: center;
-    justify-content: center;
-    background-image: image-set('/public/android.png');     
-    background-size: cover;       
-    background-repeat: no-repeat;
-    background-position: center;
-}
+    .competencia-sobre{               
+        font-size: 0.7rem;
+        margin-bottom: 50px;
+        margin-left: 5%;
+    }
+    .texto-sobre{       
+        margin-top: 10%;
+        font-size: 0.8rem;
+        margin-left: 5%;
+    }
+    .tooltip h3{        
+        font-size: 0.8rem;
+    }
+    
+}    

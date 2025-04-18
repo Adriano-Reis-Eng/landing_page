@@ -1,8 +1,8 @@
 .tech-info {    
     grid-row: 1/2;    
-    padding: 40px 20px;    
-    text-align: center;   
-    height: 100%;
+    padding: 20px 20px;    
+    text-align: center;       
+    height: 50%;
 }
 
 .tech-info h2 {
@@ -12,9 +12,9 @@
 }
 
 .tech-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;    
+    display: grid;    
     gap: 20px;
+    grid-template-columns: 1fr 1fr 1fr;
     max-width: 1200px;
     margin: 0 auto;
 }
@@ -54,8 +54,11 @@
 
 /* Tablets e telas médias */
 @media (max-width: 1024px) {
+
     .tech-info {
         padding: 30px 15px;
+        max-width: 1000px;
+        width: 100%;
     }
     
     .tech-info h2 {
@@ -66,6 +69,7 @@
         grid-template-columns: repeat(2, 1fr);
         gap: 20px;
         padding: 0 15px;
+        
     }
     
     .tech-card {
@@ -100,12 +104,14 @@
     .tech-description {
         font-size: 0.95rem;
     }
+    
 }
 
 /* Smartphones */
 @media (max-width: 480px) {
     .tech-info {
         padding: 20px 5px;
+        max-width: 460px;
     }
     
     .tech-info h2 {
